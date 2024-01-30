@@ -9,20 +9,26 @@ function Header(){
                         <a href="#">
                             Home
                         </a>
+                    </li>
+                    <li>
                         <a href="#">
-                            Home
-                            
+                            About
                         </a>
+                        
+                    </li>
+                    <li>
                         <a href="#">
-                            Home
-                            
+                            Services
                         </a>
+                    </li>
+                    <li>
                         <a href="#">
-                            Home
+                            Contact
                         </a>
                     </li>
                 </ul>
             </nal>
+            <hr></hr>
         </header>
     )
 }
