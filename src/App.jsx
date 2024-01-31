@@ -1,9 +1,17 @@
 
+import Footer from "./Footer";
 import Header from "./Header"
+
 function App() {
- return(
-<Header></Header>
- );
+  return (
+    
+    <>
+    <Header></Header>
+    <Footer/>
+    </>
+    
+    
+  );
 }
 
 export default App
