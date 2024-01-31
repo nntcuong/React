@@ -1,7 +1,7 @@
 const Admin =(props)=>{
     return(
         <div>
-        Admin content
+        Admin conten
         </div>
     )
 }

@@ -1,23 +1,20 @@
 
 import Header from "./components/Header";
 import { Outlet } from "react-router-dom";
+import TopBar from "./components/TopBar";
 function App() {
   return (
-    <div className="App">
-      <div className="app-header">
+    <div class="container">
+      <Header />
+      <div class="main">
+        <TopBar />
 
-        <Header />
-      </div>
-      <div className="app-content">
         <Outlet>
-          
+
         </Outlet>
-
-        {/* app content */}
       </div>
+      
     </div>
-
-
   );
 }
 

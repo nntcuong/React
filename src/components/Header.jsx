@@ -1,35 +1,62 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { NavDropdown } from 'react-bootstrap';
+import '../css/style.css';
+
 function Header() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">The Cuong</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Link to="/" className='nav-link'>Home</Link>
-            <Link to="/users" className='nav-link'>User</Link>
-            <Link to="/admins" className='nav-link'>Admin</Link>
-            <Nav.Link href="/test" className='nav-link'>test</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div className="navigation">
+      <ul>
+        <li>
+          <Link to="/" className='nav-link'>
+            <img className="rate" src="../src/assets/imgs/interest-rate.png" alt="Interest Rate" />
+            <span className="title_head">LÃI SUẤT NGÂN HÀNG</span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/LaiDon" className='nav-link'>
+            <span className="title">
+              1. Lãi đơn
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/LaiKep" className='nav-link'>
+            <span className="title">
+              2 .Lãi kép
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/TienGuiHangThang" className='nav-link'>
+            <span className="title">
+              3. Tiền gửi hàng tháng
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/GuiNganHangVaRutTienGuiHangThang" className='nav-link'>
+            <span className="title">
+              4. Gửi ngân hàng và rút tiền gửi hàng tháng
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/VayVonTraGop" className='nav-link'>
+            <span className="title">
+              5. Vay vốn trả góp
+            </span>
+          </Link>
+        </li>
+        <li>
+          <Link to="/LaiKepLienTuc" className='nav-link'>
+            <span className="title">
+              6 .Lãi kép liên tục
+            </span>
+          </Link>
+        </li>
+      </ul>
+    </div>
   );
 }
 
