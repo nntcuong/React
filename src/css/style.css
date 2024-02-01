@@ -4,9 +4,6 @@
 /* =============== Your Styles ============== */
 /* Add your styles below the @import statement */
 /* For example: */
-body {
-  font-family: 'Ubuntu', sans-serif;
-}
 
 /* Rest of your styles */
 * {
@@ -254,7 +251,9 @@ a {
   width: 400px;
   margin: 0 10px;
 }
-
+.search.icon-search {
+  margin-top: -20px;
+}
 .search label {
   position: relative;
   width: 100%;
@@ -285,11 +284,29 @@ a {
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+  margin-left: 600px;
 }
 .input{
+  
+  margin-top: 5px;
   height: 30px;
-  margin-top: 10px;
-  width: 500px;
+  margin-right: 50px;
+  width: 800px;
+  border-radius: 10px;
+}
+.inputSelect{
+  
+  margin-top: -2px;
+  height: 30px;
+  margin-right: 50px;
+  width: 100px;
+  border-radius: 10px;
+}
+.marginLeft{
+  margin-left: 45px;
+}
+.rowFlex{
+  display: flex;
 }
 .user img {
   position: absolute;
@@ -378,10 +395,15 @@ a {
 }
 
 .cardHeader h2 {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--blue);
 }
-
+.cardHeaderText{
+  font-size: 35px;
+  color: red;
+  font-weight: bolder;
+  margin-left: 185px;
+}
 .cardHeader .btn {
   position: relative;
   padding: 5px 10px;
@@ -517,20 +539,35 @@ a {
 .recentCustomers table tr:hover td h4 span {
   color: var(--white);
 }
-.recentCustomers2{
+.recentCustomers2 {
 
-  /* position: relative; */
-  /* display: grid; */
-  min-height: 500px;
-  padding: 20px;
   background: var(--white);
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
+  /* box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08); */
+  align-self: center;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-left: 300px;
+
+
 }
 .margin{
 
-  margin-top: 20px;
+  margin-top: 10px;
 }
+.search-label {
+  position: relative;
+  margin-left: -100px;
+}
+
+.icon-search {
+  position: absolute;
+  right: 10px; /* Adjust the positioning as needed */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {
   .navigation {
@@ -543,7 +580,7 @@ a {
   }
 
   .main {
-    width: 100%;
+    width: 80%;
     left: 0;
   }
 
@@ -564,6 +601,7 @@ a {
   .recentOrders {
     overflow-x: auto;
   }
+  
 
   .status.inProgress {
     white-space: nowrap;

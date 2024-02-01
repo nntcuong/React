@@ -1,25 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavDropdown } from 'react-bootstrap';
 import '../css/style.css';
 
 function Header() {
+  const [isNavigationActive, setNavigationActive] = useState(false);
+
+  const handleMouseOver = () => {
+    setNavigationActive(false); // Reset active class on mouseover
+  };
+
+  // Menu Toggle
+  const handleToggleClick = () => {
+    setNavigationActive(!isNavigationActive);
+  };
+
   return (
     <div className="topbar">
-      <div className="toggle">
-        <ion-icon name="menu-outline"></ion-icon>
+      <div className="toggle" onClick={handleToggleClick}>
+        <img className="icon-search" src="../src/assets/imgs/more.png" alt="" />
       </div>
 
       <div className="search">
-        <label>
+        <label className="search-label" onMouseOver={handleMouseOver}>
           <input type="text" placeholder="Search here" />
-          <ion-icon name="search-outline"></ion-icon>
+          <img className="icon-search" src="../src/assets/imgs/search.png" alt="" />
         </label>
       </div>
 
-      <div className="user">
+      {/* <div className="user">
         <img src="../src/assets/imgs/interest-rate.png" alt="" />
-      </div>
+      </div> */}
     </div>
   );
 }
