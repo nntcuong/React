@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { NavDropdown } from 'react-bootstrap';
 import '../css/style.css';
-import  { useState } from 'react';
-const LaiKep =(props)=>{
-  
+import { useState } from 'react';
+const LaiKep = (props) => {
+
   const [initialCapital, setInitialCapital] = useState('');
   const [interestRate, setInterestRate] = useState('');
   const [totalCapitalAndInterest, setTotalCapitalAndInterest] = useState('');
@@ -16,10 +16,10 @@ const LaiKep =(props)=>{
     const totalCapitalAndInterestValue = parseFloat(totalCapitalAndInterest);
 
     if (!isNaN(initialCapitalValue) && !isNaN(interestRateValue) && !isNaN(totalCapitalAndInterestValue)) {
-      let q = 1 + totalCapitalAndInterestValue / 100;
-      let n = Math.log(initialCapitalValue / interestRateValue, q);
-      const rounded_n = Math.round(n);
+
+      const rounded_n = Math.log(totalCapitalAndInterestValue / initialCapitalValue) / Math.log(1 + interestRateValue / 100);
       setNumberOfPeriods(rounded_n);
+
     } else {
       setNumberOfPeriods(null);
     }
@@ -37,7 +37,7 @@ const LaiKep =(props)=>{
     const totalCapitalAndInterestValue2 = parseFloat(totalCapitalAndInterest2);
 
     if (!isNaN(initialCapitalValue2) && !isNaN(interestRateValue2) && !isNaN(totalCapitalAndInterestValue2)) {
-      const periods = initialCapital2 * (1 + totalCapitalAndInterest2 * interestRate2/100)
+      const periods = initialCapital2 * (1 + totalCapitalAndInterest2 * interestRate2 / 100)
       setNumberOfPeriods2(periods);
     } else {
       setNumberOfPeriods2(null);
@@ -57,7 +57,7 @@ const LaiKep =(props)=>{
     const totalCapitalAndInterestValue4 = parseFloat(totalCapitalAndInterest4);
 
     if (!isNaN(initialCapitalValue4) && !isNaN(interestRateValue4) && !isNaN(totalCapitalAndInterestValue4)) {
-      const periods4 =totalCapitalAndInterestValue4 /( 1 + (initialCapitalValue4 *( interestRateValue4/100)))
+      const periods4 = totalCapitalAndInterestValue4 / (1 + (initialCapitalValue4 * (interestRateValue4 / 100)))
       setNumberOfPeriods4(periods4);
     } else {
       setNumberOfPeriods4(null);
@@ -111,13 +111,13 @@ const LaiKep =(props)=>{
 
           </div>
           <div className="result">
-          <div className="resultRow">
-          <p>Số kỳ hạn là : </p>
-            {numberOfPeriods !== null && (
-              <p className="resultNumber">  {numberOfPeriods.toFixed(2)}</p>
-            )}
+            <div className="resultRow">
+              <p>Số kỳ hạn là : </p>
+              {numberOfPeriods !== null && (
+                <p className="resultNumber">  {numberOfPeriods.toFixed(2)}</p>
+              )}
             </div>
-           <button onClick={calculateNumberOfPeriods}>Tính</button>
+            <button onClick={calculateNumberOfPeriods}>Tính</button>
           </div>
         </div>
 
@@ -146,13 +146,13 @@ const LaiKep =(props)=>{
 
           </div>
           <div className="result">
-          <div className="resultRow">
-          <p>Tính vốn và lãi : </p>
-            {numberOfPeriods2 !== null && (
-              <p className="resultNumber">  {numberOfPeriods2.toFixed(2)}</p>
-            )}
+            <div className="resultRow">
+              <p>Tính vốn và lãi : </p>
+              {numberOfPeriods2 !== null && (
+                <p className="resultNumber">  {numberOfPeriods2.toFixed(2)}</p>
+              )}
             </div>
-           <button onClick={calculateNumberOfPeriods2}>Tính</button>
+            <button onClick={calculateNumberOfPeriods2}>Tính</button>
           </div>
         </div>
 
@@ -180,13 +180,13 @@ const LaiKep =(props)=>{
 
           </div>
           <div className="result">
-          <div className="resultRow">
-          <p>Số tiền vốn là : </p>
-            {numberOfPeriods4!== null && (
-              <p className="resultNumber">  {numberOfPeriods4.toFixed(2)}</p>
-            )}
+            <div className="resultRow">
+              <p>Số tiền vốn là : </p>
+              {numberOfPeriods4 !== null && (
+                <p className="resultNumber">  {numberOfPeriods4.toFixed(2)}</p>
+              )}
             </div>
-           <button onClick={calculateNumberOfPeriods4}>Tính</button>
+            <button onClick={calculateNumberOfPeriods4}>Tính</button>
           </div>
         </div>
 
