@@ -21,6 +21,64 @@ const LaiDon = (props) => {
       setNumberOfPeriods(null);
     }
   };
+
+
+  const [initialCapital2, setInitialCapital2] = useState('');
+  const [interestRate2, setInterestRate2] = useState('');
+  const [totalCapitalAndInterest2, setTotalCapitalAndInterest2] = useState('');
+  const [numberOfPeriods2, setNumberOfPeriods2] = useState(null);
+
+  const calculateNumberOfPeriods2 = () => {
+    const initialCapitalValue2 = parseFloat(initialCapital2);
+    const interestRateValue2 = parseFloat(interestRate2);
+    const totalCapitalAndInterestValue2 = parseFloat(totalCapitalAndInterest2);
+
+    if (!isNaN(initialCapitalValue2) && !isNaN(interestRateValue2) && !isNaN(totalCapitalAndInterestValue2)) {
+      const periods = initialCapital2 * (1 + totalCapitalAndInterest2 * interestRate2/100)
+      setNumberOfPeriods2(periods);
+    } else {
+      setNumberOfPeriods2(null);
+    }
+  };
+
+  const [initialCapital3, setInitialCapital3] = useState('');
+  const [interestRate3, setInterestRate3] = useState('');
+  const [totalCapitalAndInterest3, setTotalCapitalAndInterest3] = useState('');
+  const [numberOfPeriods3, setNumberOfPeriods3] = useState(null);
+
+  const calculateNumberOfPeriods3 = () => {
+    const initialCapitalValue3 = parseFloat(initialCapital3);
+    const interestRateValue3 = parseFloat(interestRate3);
+    const totalCapitalAndInterestValue3 = parseInt(totalCapitalAndInterest3);
+
+    if (!isNaN(initialCapitalValue3) && !isNaN(interestRateValue3) && !isNaN(totalCapitalAndInterestValue3)) {
+      let periods = 0;
+      for (let i = 1; i <= totalCapitalAndInterestValue3; i++) {
+        periods =periods+ initialCapitalValue3 * (1 + ((interestRateValue3*i)/100));
+      }
+      setNumberOfPeriods3(periods);
+    } else {
+      setNumberOfPeriods3(null);
+    }
+  };
+
+  const [initialCapital4, setInitialCapital4] = useState('');
+  const [interestRate4, setInterestRate4] = useState('');
+  const [totalCapitalAndInterest4, setTotalCapitalAndInterest4] = useState('');
+  const [numberOfPeriods4, setNumberOfPeriods4] = useState(null);
+
+  const calculateNumberOfPeriods4 = () => {
+    const initialCapitalValue4 = parseFloat(initialCapital4);
+    const interestRateValue4 = parseFloat(interestRate4);
+    const totalCapitalAndInterestValue4 = parseFloat(totalCapitalAndInterest4);
+
+    if (!isNaN(initialCapitalValue4) && !isNaN(interestRateValue4) && !isNaN(totalCapitalAndInterestValue4)) {
+      const periods4 =totalCapitalAndInterestValue4 /( 1 + (initialCapitalValue4 *( interestRateValue4/100)))
+      setNumberOfPeriods4(periods4);
+    } else {
+      setNumberOfPeriods4(null);
+    }
+  };
   return (
     <div>
 
@@ -91,20 +149,26 @@ const LaiDon = (props) => {
           <div>
             <div className="rowInput">
               <p>Nhập số vốn ban đầu</p>
-              <input type="number" />
+              <input type="number" value={initialCapital2} onChange={(e) => setInitialCapital2(e.target.value)} />
             </div>
             <div className="rowInput">
               <p>Nhập số % lãi suất</p>
-              <input type="number" />
+              <input type="number" value={interestRate2} onChange={(e) => setInterestRate2(e.target.value)} />
             </div>
             <div className="rowInput">
-              <p>Nhập tổng vốn và lãi</p>
-              <input type="number" />
+              <p>Nhập số kỳ hạn</p>
+              <input type="number" value={totalCapitalAndInterest2} onChange={(e) => setTotalCapitalAndInterest2(e.target.value)} />
             </div>
+
           </div>
           <div className="result">
-            <p>Số kỳ hạn là</p>
-            <button>Tính</button>
+          <div className="resultRow">
+          <p>Tính vốn và lãi : </p>
+            {numberOfPeriods2 !== null && (
+              <p className="resultNumber">  {numberOfPeriods2.toFixed(2)}</p>
+            )}
+            </div>
+           <button onClick={calculateNumberOfPeriods2}>Tính</button>
           </div>
         </div>
 
@@ -119,20 +183,26 @@ const LaiDon = (props) => {
           <div>
             <div className="rowInput">
               <p>Nhập số vốn ban đầu</p>
-              <input type="number" />
+              <input type="number" value={initialCapital3} onChange={(e) => setInitialCapital3(e.target.value)} />
             </div>
             <div className="rowInput">
               <p>Nhập số % lãi suất</p>
-              <input type="number" />
+              <input type="number" value={interestRate3} onChange={(e) => setInterestRate3(e.target.value)} />
             </div>
             <div className="rowInput">
-              <p>Nhập tổng vốn và lãi</p>
-              <input type="number" />
+              <p>Nhập số kỳ hạn</p>
+              <input type="number" value={totalCapitalAndInterest3} onChange={(e) => setTotalCapitalAndInterest3(e.target.value)} />
             </div>
+
           </div>
           <div className="result">
-            <p>Số kỳ hạn là</p>
-            <button>Tính</button>
+          <div className="resultRow">
+          <p>Tổng tiền từng kỳ hạn là : </p>
+            {numberOfPeriods3 !== null && (
+              <p className="resultNumber">  {numberOfPeriods3.toFixed(2)}</p>
+            )}
+            </div>
+           <button onClick={calculateNumberOfPeriods3}>Tính</button>
           </div>
         </div>
 
@@ -146,23 +216,32 @@ const LaiDon = (props) => {
 
           <div>
             <div className="rowInput">
-              <p>Nhập số vốn ban đầu</p>
-              <input type="number" />
+              <p>Nhập số kỳ hạn</p>
+              <input type="number" value={initialCapital4} onChange={(e) => setInitialCapital4(e.target.value)} />
             </div>
             <div className="rowInput">
               <p>Nhập số % lãi suất</p>
-              <input type="number" />
+              <input type="number" value={interestRate4} onChange={(e) => setInterestRate4(e.target.value)} />
             </div>
             <div className="rowInput">
               <p>Nhập tổng vốn và lãi</p>
-              <input type="number" />
+              <input type="number" value={totalCapitalAndInterest4} onChange={(e) => setTotalCapitalAndInterest4(e.target.value)} />
             </div>
+
           </div>
           <div className="result">
-            <p>Số kỳ hạn là</p>
-            <button>Tính</button>
+          <div className="resultRow">
+          <p>Số tiền vốn là : </p>
+            {numberOfPeriods4!== null && (
+              <p className="resultNumber">  {numberOfPeriods4.toFixed(2)}</p>
+            )}
+            </div>
+           <button onClick={calculateNumberOfPeriods4}>Tính</button>
           </div>
         </div>
+
+
+
       </div>
     </div>
   );
