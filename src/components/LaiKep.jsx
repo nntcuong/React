@@ -37,7 +37,7 @@ const LaiKep = (props) => {
     const totalCapitalAndInterestValue2 = parseFloat(totalCapitalAndInterest2);
 
     if (!isNaN(initialCapitalValue2) && !isNaN(interestRateValue2) && !isNaN(totalCapitalAndInterestValue2)) {
-      const periods = initialCapital2 * (1 + totalCapitalAndInterest2 * interestRate2 / 100)
+      const periods = initialCapitalValue2 * Math.pow(1 + interestRateValue2/100, totalCapitalAndInterestValue2);
       setNumberOfPeriods2(periods);
     } else {
       setNumberOfPeriods2(null);
@@ -57,8 +57,10 @@ const LaiKep = (props) => {
     const totalCapitalAndInterestValue4 = parseFloat(totalCapitalAndInterest4);
 
     if (!isNaN(initialCapitalValue4) && !isNaN(interestRateValue4) && !isNaN(totalCapitalAndInterestValue4)) {
-      const periods4 = totalCapitalAndInterestValue4 / (1 + (initialCapitalValue4 * (interestRateValue4 / 100)))
-      setNumberOfPeriods4(periods4);
+      const q = 1 + interestRateValue4 / 100;
+      const A = initialCapitalValue4 / Math.pow(q, totalCapitalAndInterestValue4);
+      const roundedA = Math.round(A);
+      setNumberOfPeriods4(roundedA);
     } else {
       setNumberOfPeriods4(null);
     }
@@ -147,7 +149,7 @@ const LaiKep = (props) => {
           </div>
           <div className="result">
             <div className="resultRow">
-              <p>Tính vốn và lãi : </p>
+              <p>Tổng vốn và lãi : </p>
               {numberOfPeriods2 !== null && (
                 <p className="resultNumber">  {numberOfPeriods2.toFixed(2)}</p>
               )}
@@ -166,15 +168,15 @@ const LaiKep = (props) => {
 
           <div>
             <div className="rowInput">
-              <p>Nhập số kỳ hạn</p>
+              <p>Nhập tổng vốn và lãi</p>
               <input type="number" value={initialCapital4} onChange={(e) => setInitialCapital4(e.target.value)} />
             </div>
             <div className="rowInput">
-              <p>Nhập số % lãi suất</p>
+              <p>Nhập lãi suất</p>
               <input type="number" value={interestRate4} onChange={(e) => setInterestRate4(e.target.value)} />
             </div>
             <div className="rowInput">
-              <p>Nhập tổng vốn và lãi</p>
+              <p>Nhập kỳ hạn</p>
               <input type="number" value={totalCapitalAndInterest4} onChange={(e) => setTotalCapitalAndInterest4(e.target.value)} />
             </div>
 
