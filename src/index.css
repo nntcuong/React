@@ -47,7 +47,7 @@ body {
 .container {
   position: relative;
   width: 100%;
-  border-radius: 25%;
+  border-radius: 90px;
 }
 .rowInput {
 
@@ -93,12 +93,14 @@ body {
 /* =============== Navigation ================ */
 .navigation {
   position: fixed;
-  width: 550px;
+  width: 700px;
   height: 100%;
   background: var(--blue);
   border-left: -30px solid var(--blue);
   transition: 0.5s;
   overflow: hidden;
+  border-radius: 25px;
+  margin-left: -280px;
 }
 
 .navigation.active {

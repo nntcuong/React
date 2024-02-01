@@ -5,7 +5,9 @@ import TopBar from "./components/TopBar";
 function App() {
   return (
     <div class="container">
+      <div class="navigation">
       <Header />
+      </div>
       <div class="main">
         <TopBar />
 

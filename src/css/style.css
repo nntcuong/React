@@ -55,13 +55,22 @@ body {
   width: 600px;
 }
 .result{
-  margin-top: 30px;
+  margin-top: 100px;
+}
+.resultNumber {
+  margin-left: 8px; /* Adjust the values as needed for your desired spacing */
 }
 .result p{
   font-family: "Ubuntu", sans-serif;
   font-size: 30px;
   font-weight: bold;
   margin-top: 10PX;
+}
+.resultRow {
+  display: flex;
+  
+  align-items: center;
+  /* Add any additional styling you need */
 }
 .result button{
   width: 100px;
@@ -78,7 +87,7 @@ body {
 }
 /* =============== Navigation ================ */
 .navigation {
-  position: fixed;
+  
   width: 650px;
   height: 100%;
   background: var(--blue);
@@ -571,7 +580,7 @@ a {
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {
   .navigation {
-    left: -300px;
+    left: 300px;
   }
 
   .navigation.active {

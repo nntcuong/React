@@ -5,7 +5,7 @@ import '../css/style.css';
 
 function Header() {
   return (
-    <div className="navigation">
+   
       <ul>
         <li>
           <Link to="/" className='nav-link'>
@@ -56,7 +56,7 @@ function Header() {
           </Link>
         </li>
       </ul>
-    </div>
+    
   );
 }
 
